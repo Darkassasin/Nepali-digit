@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NepaliDigitConverterService } from './nepali-digit-converter/nepali-digit-converter.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,40 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  digit:number;
+  nepaliDigit:string="";
+  totalDigit:number=0;
+  ngOnInit(){
+  }
+
+  constructor(private _digitConverter:NepaliDigitConverterService){}
+  
+
+  getnepaliDigit(digit):string{
+    return this._digitConverter.getNepaliDigit(digit);
+  }
+
+  digitCount(){
+    
+    console.log(this.totalDigit)
+  }
+  convert(){
+    let n:number=this.digit;
+    let m:number=0;
+    while(n!=0){
+      m=n%10;
+      n=Math.floor(n/10);
+      this.totalDigit+=1;
+    }
+     n=this.digit;
+     m=0;
+    while(n!=0){
+      console.log("totaldigit==>"+this.totalDigit);
+      m=Math.floor(n/Math.pow(10,this.totalDigit-1));
+      console.log(m);
+      this.nepaliDigit=this.nepaliDigit + this.getnepaliDigit(m);
+      n=n%Math.pow(10,this.totalDigit-1);
+      this.totalDigit-=1;
+    }
+  }
 }
