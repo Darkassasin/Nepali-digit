@@ -3,7 +3,8 @@ import {Component, Injectable} from "@angular/core";
 @Injectable()
 export class NepaliDigitConverterService {
     nepaliDigit:string="";
-    convert(entNumber): string {
+
+    convertToNepaliDigit(entNumber): string {
         entNumber=String(entNumber);
         this.nepaliDigit="";
         let m: number = 0;
@@ -20,7 +21,6 @@ export class NepaliDigitConverterService {
             i++;
             // console.log(this.nepaliDigit);
         }
-        console.log(this.nepaliDigit);
         return this.nepaliDigit;
     }
 

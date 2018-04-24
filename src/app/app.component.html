@@ -1,3 +1,5 @@
-<h1>Welcome to Nepali Digit converter</h1>
-<input type="number" [(ngModel)]="digit" (blur)="convert()" (keyup)="digitCount()">
-<input type="text" [(ngModel)]="nepaliDigit">
+
+<div style="margin-top:5%; margin-left: 5%;">
+  <input type="text" class="form-control col-md-5" [(ngModel)]="digit" (keyup)="convert()"><br>
+  <textarea name="nepaliDigitArea" class="form-control col-md-5"  cols="10" rows="10" disabled>{{nepaliDigit}}</textarea>
+</div>
