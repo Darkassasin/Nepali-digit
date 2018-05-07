@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NepaliDigitConverterService } from './nepali-digit-converter/nepali-digit-converter.service';
+import {UnicodeConverterService} from "./nepali-unicode/unicode-converter.service";
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,11 @@ import { NepaliDigitConverterService } from './nepali-digit-converter/nepali-dig
 export class AppComponent {
   digit:number;
   nepaliDigit:string="";
+  word:string="";
+  unicode:string="";
 
-  constructor(private _digitConverter:NepaliDigitConverterService){}
+  constructor(private _digitConverter:NepaliDigitConverterService,
+              private _unicodeConverter:UnicodeConverterService){}
 
 
   getnepaliDigit(digit):string{
@@ -37,5 +41,13 @@ export class AppComponent {
     console.log(this.digit);
     this.nepaliDigit=this.getnepaliDigit(this.digit);
     console.log(this.nepaliDigit)
+  }
+
+  convert2Nepali(){
+    this.unicode=this.getNepaliWord(this.word);
+  }
+
+  getNepaliWord(word):string{
+    return this._unicodeConverter.converttoUnicode(word);
   }
 }
