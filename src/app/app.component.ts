@@ -9,8 +9,8 @@ import {UnicodeConverterService} from "./nepali-unicode/unicode-converter.servic
 })
 export class AppComponent {
   digit:number;
-  nepaliDigit:string="";
-  word:string="";
+  nepaliDigit:string="अंक को लागि";
+  word:string="अक्षर  को लागि ";
   unicode:string="";
 
   constructor(private _digitConverter:NepaliDigitConverterService,
@@ -49,5 +49,9 @@ export class AppComponent {
 
   getNepaliWord(word):string{
     return this._unicodeConverter.converttoUnicode(word);
+  }
+
+  reset(){
+    this.word="";
   }
 }

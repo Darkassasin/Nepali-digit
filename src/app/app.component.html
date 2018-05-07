@@ -3,6 +3,6 @@
   <input type="text" class="form-control col-md-5" [(ngModel)]="digit" (keyup)="convert()"><br>
   <textarea name="nepaliDigitArea" class="form-control col-md-5"  cols="10" rows="10" disabled>{{nepaliDigit}}</textarea>
   <hr>
-  <input type="text" class="form-control col-md-5" [(ngModel)]="word" (keyup)="convert2Nepali()"><br>
+  <input type="text" class="form-control col-md-5" [(ngModel)]="word" (keyup)="convert2Nepali()" (click)="reset()"><br>
   <textarea name="nepaliDigitArea" class="form-control col-md-5"  cols="10" rows="10" disabled>{{unicode}}</textarea>
 </div>
